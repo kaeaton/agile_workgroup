@@ -1,0 +1,2 @@
+com/example/pathways/BuildConfig.java
+ com.example.pathways.BuildConfig
