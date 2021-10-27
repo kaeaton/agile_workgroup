@@ -1,11 +1,16 @@
 package com.example.pathways
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,7 +19,28 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
+        //setContentView(android.R.layout.fragment_first)
+        (findViewById<View>(R.id.main_message_input) as EditText).addTextChangedListener(object :
+            TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {
+                (findViewById<View>(R.string.help_request) as String).setText(s)
+            }
+
+            override fun beforeTextChanged(s: CharSequence, start: Int,
+                                           count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int,
+                                       before: Int, count: Int) {
+            }
+        })
+
        
+    }
+
+    private fun addRequest(view: View) {
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
